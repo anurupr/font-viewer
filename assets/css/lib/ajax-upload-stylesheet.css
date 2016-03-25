@@ -1,0 +1,335 @@
+a, a:visited {
+    outline:none;
+    color:#389dc1;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
+section, footer, header, aside{
+    display: block;
+    float:left;
+}
+
+
+/*----------------------------
+    The file upload form
+-----------------------------*/
+
+
+#upload{
+    font-family:'PT Sans Narrow', sans-serif;
+    background-color:#373a3d;
+
+    background-image:-webkit-linear-gradient(top, #373a3d, #313437);
+    background-image:-moz-linear-gradient(top, #373a3d, #313437);
+    background-image:linear-gradient(top, #373a3d, #313437);
+
+    width:auto;
+    padding:30px;
+    border-radius:3px;
+
+    /*margin:200px auto 100px;*/
+    margin: 5px auto 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#drop{
+    background-color: #2E3134;
+    padding: 40px 50px;
+    margin-bottom: 30px;
+    border: 20px solid rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    border-image: url('../images/border-image.png') 25 repeat;
+    text-align: center;
+    text-transform: uppercase;
+
+    font-size:16px;
+    font-weight:bold;
+    color:#7f858a;
+}
+
+#drop a,
+a.process-button{
+    background-color:#007a96;
+    padding:12px 26px;
+    color:#fff;
+    font-size:14px;
+    border-radius:2px;
+    cursor:pointer;
+    display:inline-block;
+    margin-top:12px;
+    line-height:1;
+}
+
+#drop a:hover,
+a.process-button:hover{
+    background-color:#0986a3;
+}
+
+
+a.process-button{
+    float:right;
+    margin-bottom:5px;
+    margin-right:5px;
+    font-weight:bold;
+    text-transform: uppercase;
+}
+
+a.process-button.disabled{
+    background-color: rgb(170, 170, 170);
+    color:rgb(128, 125, 125);
+    cursor:default;
+}
+
+.loader {
+    float: left;
+    margin-top: 15px;
+    margin-left: 5px;
+    display:none;
+}
+
+.response{
+    float:left;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.response.success{
+    color:green;
+}
+
+.response.error{
+    color:#c66;
+}
+
+#drop input{
+    display:none;
+}
+
+#upload ul{
+    list-style:none;
+    margin:0 -30px;
+    border-top:1px solid #2b2e31;
+    border-bottom:1px solid #3d4043;
+}
+
+#upload ul li{
+
+    background-color:#333639;
+
+    background-image:-webkit-linear-gradient(top, #333639, #303335);
+    background-image:-moz-linear-gradient(top, #333639, #303335);
+    background-image:linear-gradient(top, #333639, #303335);
+
+    border-top:1px solid #3d4043;
+    border-bottom:1px solid #2b2e31;
+    padding:15px;
+    /*height: 52px;*/
+    height:80px;
+
+    position: relative;
+}
+
+/* added by anurup */
+#upload ul li.relevant > p{
+    color:rgb(79, 222, 159);
+    width:85%;
+}
+
+span.indicator{
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 150px;
+    position: absolute;
+    top: 7px;
+    left: 5px;
+}
+
+span.indicator.relevant{
+    background-color:rgb(79, 222, 159);
+}
+
+#upload ul li.working > p{
+    color: rgb(252, 71, 114);
+    width:100%;
+}
+
+span.indicator.working{
+    background-color: rgb(252, 71, 114);
+}
+
+#upload ul li input{
+    display: none;
+}
+
+#upload ul li p{
+    width: 144px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #EEE;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+}
+
+#upload ul li i{
+    font-weight: normal;
+    font-style:normal;
+    color:#7f7f7f;
+    display:block;
+}
+
+#upload ul li canvas{
+    top: 15px;
+    left: 32px;
+    position: absolute;
+}
+
+#upload ul li span,
+#file-list ul li span,
+.legend span.icon{
+    width: 15px;
+    height: 12px;
+    background: url('../images/icons.png') no-repeat;
+    position: absolute;
+    top: 34px;
+    right: 33px;
+    cursor:pointer;
+}
+
+.legend{
+    position:relative;
+    float:right;
+    height:20px;
+    right: 5px;
+    top: 5px;
+}
+
+.legend span.icon,
+.legend span.icon.working{
+    top:4px;
+    right:auto;
+}
+
+.legend > span{
+    position:relative;
+    margin-right:14px;
+    margin-left:14px;
+}
+.legend span.text{
+    position:relative;
+    left:15px;
+    margin-left:5px;
+    color:#fff;
+    font-size:13px;
+}
+
+#upload ul li.working span,
+#file-list ul li.working span,
+.legend span.icon.working{
+    height: 16px;
+    background-position: 0 -12px;
+}
+
+#upload ul li.error p{
+    color:red;
+}
+/*
+ * added by anurup
+ */
+#upload ul li:hover {
+    opacity: 0.8;
+    /*outline: 1px solid #888;*/
+    cursor: pointer;
+    box-shadow: inset 0px 0px 7px -1px #111;
+}
+
+
+/*
+ * added by anurup
+ */
+ #file-list{
+    display: none;
+    position: absolute;
+    left: -9999px;
+    min-height: 350px;
+    background-color: #fff;    
+    background: url("../images/border-image.png");
+    background-repeat: no-repeat;
+    background-color: #373a3d;
+    background-image: -webkit-linear-gradient(top, #373a3d, #313437);
+    background-image: -moz-linear-gradient(top, #373a3d, #313437);
+    background-image: linear-gradient(top, #373a3d, #313437);
+    border-left: 1px solid #444;
+    transition : position 0.2s ease;
+ }
+
+/* div.archive{
+    position: absolute; 
+    right: 0px; 
+    height: 100%; 
+    width: 5px; 
+    background-color: steelblue; 
+    top: 0px;
+    animation:pulse 0.8s infinite alternate;
+ }
+
+ @keyframes pulse {
+  from { box-shadow:0px -2px 3px 3px #0066cc; }
+  to { box-shadow:0px -2px 10px 5px #0066cc; }
+}*/
+
+.view-files{
+    position: absolute; 
+    right: 10px; 
+    height: auto; 
+    width: auto; 
+    color: steelblue; 
+    bottom: 0px;
+    text-decoration: none;
+    padding:2px;
+}
+
+#file-list{
+    display:none;
+    position:absolute;
+    left:-9999px;
+    transition: position 0.2s ease;
+ }
+
+#file-list ul{
+    margin:0;
+}
+
+#file-list ul li p{
+    width: 15em;    
+    white-space: normal;            
+    word-break: break-all;
+    top:30px;
+    overflow:visible;
+    left:10px;
+}
+
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+    
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
